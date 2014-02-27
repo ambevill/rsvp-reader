@@ -1,11 +1,11 @@
 import Tkinter as tki
+from tkFont import Font
 from wordfeed import WordFeed
+from settings import RSVP_FONT_DICT, RSVP_SHAPE
 
 
-invoke = lambda b: lambda e: b.invoke()
 
 master = tki.Tk()
-
 
 class Gui(object):
 
@@ -93,7 +93,8 @@ class RsvpFrame(tki.Frame):
     def __init__(self, master, gui):
         tki.Frame.__init__(self, master)
         self.gui = gui
-        self.shape = width,height = (600, 100)
+        self.font = Font(**RSVP_FONT_DICT)
+        self.shape = width,height = RSVP_SHAPE
         self.text_id = None
         c = self.canvas = tki.Canvas(self, width=width, height=height)
         c.pack()
@@ -107,7 +108,8 @@ class RsvpFrame(tki.Frame):
             self.text_id = None
         self.text_id = self.canvas.create_text(
             (width/2, height/2),
-            text=text)
+            text=text,
+            font=self.font)
 
     def clear_canvas(self):
         self.canvas.delete()
