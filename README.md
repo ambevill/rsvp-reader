@@ -7,7 +7,7 @@ Lightweight Rapid Serial Visual Presentation (RSVP) via Python TKInter. The read
 Installation
 ------------
 
-- Linux: Download the zipped source code, e.g., https://github.com/ambevill/rsvp-reader/archive/master.zip. To run, open a terminal and call python on that directory: *python Downloads/rsvp-reader-master.zip*
+- Linux: Download and unzip the source code, e.g., https://github.com/ambevill/rsvp-reader/archive/master.zip. To run, open a terminal and call python on the unzipped directory: *python Downloads/rsvp-reader-master*
 - OS X: Same as Linux. See note on TCL compatibility below.
 - Windows: Unlike Linux and OS X, Python is not included on Windows. Install Python 2 (http://python.org/download/) and then follow the Linux instructions. (Linux "terminal" = Windows "command prompt")
 
@@ -23,9 +23,7 @@ To check your Python version, run *python --version* in a terminal. To check you
 Settings and Modification
 -------------------------
 
-The rsvp-reader is intended for users with beginner-level Python skills. The basic user settings (words per minute, pause-length for punctuation) are listed in settings.py.
-
-To access the source code, unzip the downloaded .zip file. To call the modified program, call python on the unzipped directory: *python Downloads/rsvp-reader-master*
+The rsvp-reader is intended for users with beginner-level Python skills. The basic user settings (words per minute, pause-length for punctuation) are listed in settings.py in the unzipped directory. After adjusting settings, restart the program.
 
 
 Release Notes
