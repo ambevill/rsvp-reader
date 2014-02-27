@@ -1,8 +1,4 @@
 import Tkinter as tki
-import tkFileDialog
-#from core import Publisher, LoopedDaemonThread, Rule
-#import numpy as np
-from persistent import SETTINGS_DATABASE as settings
 from wordfeed import WordFeed
 
 
