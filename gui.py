@@ -19,6 +19,9 @@ class Gui(object):
         self.rsvp_frame.pack(side=tki.TOP)
         self.control_frame = ControlFrame(self.master, self)
         self.control_frame.pack(side=tki.TOP)
+        self.rate_string = rs = tki.StringVar()
+        self.rate_label = tki.Label(self.master, textvariable=rs)
+        self.rate_label.pack(side=tki.TOP)
         #
         self.master.bind('<Escape>', lambda e: self.master.destroy())
         self.master.resizable(False, False)
@@ -39,6 +42,13 @@ class Gui(object):
         text = self.input_frame.entry.get()
         self.wordfeed = WordFeed(text, inext)
         self.rsvp_frame.update()
+        #
+        num_words, total_minutes = self.wordfeed.get_statistics()
+        stat_format = '{0} words in {1:.3f} minutes = {2:.3f} WPM.'
+        self.rate_string.set(stat_format.format(
+            num_words,
+            total_minutes,
+            num_words / total_minutes))
 
     def update_rsvp(self):
         text, delay_ms = self.wordfeed.next()
