@@ -21,7 +21,6 @@ class FrequencyDict(object):
 
     def get_delay_words(self, text):
         freq, rank = self.fd.get(text, (0, len(self.fd)))
-        print rank, FREQUENCY_DELAY(freq, rank, self.min_freq, self.max_freq)
         return FREQUENCY_DELAY(freq, rank, self.min_freq, self.max_freq)
 
 try:

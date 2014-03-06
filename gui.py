@@ -2,7 +2,7 @@ import Tkinter as tki
 from tkFont import Font
 from wordfeed import WordFeed
 from settings import RSVP_FONT_DICT, RSVP_SHAPE
-
+from sys import platform
 
 
 master = tki.Tk()
@@ -42,13 +42,17 @@ class Gui(object):
         text = self.input_frame.entry.get()
         self.wordfeed = WordFeed(text, inext)
         self.rsvp_frame.update()
-        #
+        self.update_rate()
+
+    def update_rate(self):
         num_words, total_minutes = self.wordfeed.get_statistics()
-        stat_format = '{0} words in {1:.3f} minutes = {2:.3f} WPM.'
+        if num_words < 1:
+            return
+        stat_format = '{0} words in {1:.2f} minutes = {2} WPM.'
         self.rate_string.set(stat_format.format(
             num_words,
             total_minutes,
-            num_words / total_minutes))
+            int(num_words / total_minutes)))
 
     def update_rsvp(self):
         text, delay_ms = self.wordfeed.next()
@@ -97,6 +101,12 @@ class InputFrame(tki.Frame):
         self.inputvar.trace('w', self.gui.update_wordfeed)
         self.entry = tki.Entry(self, textvariable=self.inputvar, width=50)
         self.entry.pack()
+        sel_all_cmd = '<Command-a>' if platform == 'darwin' else '<Control-a>'
+        self.entry.bind(sel_all_cmd, self.select_all)
+
+    def select_all(self, event=None):
+        self.entry.selection_range(0, tki.END)
+        return 'break'
 
 
 class RsvpFrame(tki.Frame):
