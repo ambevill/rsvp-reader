@@ -29,6 +29,9 @@ The rsvp-reader is intended for users with beginner-level Python skills. The bas
 Release Notes
 -------------
 
+Version 0.2: Slowing words based on frequency of common use via Google Ngram data and other cosmetic changes. Tested with:
+- Ubuntu 13.10, Python 2.7.5+, TCL 8.5.13
+
 Version 0.1: Initial version, including pauses (stops) for punctuation and skip-back buttons. Tested with:
 - Ubuntu 13.10, Python 2.7.5+, TCL 8.5.13
 
@@ -36,7 +39,7 @@ Version 0.1: Initial version, including pauses (stops) for punctuation and skip-
 Planned Improvements
 --------------------
 
-- Slowing words based on frequency of common use via Google Ngram data.
+- Option to force the WPM rate to the nominal rate.
 - An extra pane highlighting the read word in context.
 
 
